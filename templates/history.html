@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in range(0, LENGTH) %}
+                {% if (i % 2 == 0) %}
+                    <tr class="shade-background">
+                        <td class="sym">{{ SYMBOL[i] }}</td>
+
+                        <td>{{ SHARES[i] }}</td>
+
+                        <td>{{ PRICE[i] }}</td>
+
+                        <td>{{ TRANSACTED[i] }}</td>
+                    </tr>
+
+                {% endif %}
+
+                {% if (i % 2 != 0) %}
+                    <tr>
+                        <td class="sym">{{ SYMBOL[i] }}</td>
+
+                        <td>{{ SHARES[i] }}</td>
+
+                        <td>{{ PRICE[i] }}</td>
+
+                        <td>{{ TRANSACTED[i] }}</td>
+                    </tr>
+                {% endif %}
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <style>
+        .table {
+            font-size:20px;
+            text-align:left;
+        }
+
+        .sym {
+            text-transform:uppercase;
+        }
+
+        .shade-background {
+            background-color: rgba(0,0,0,.05);
+        }
+
+    </style>
+{% endblock %}

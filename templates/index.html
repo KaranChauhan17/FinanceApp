@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in range(0, length) %}
+
+                {% if (i % 2 == 0) %}
+                    <tr class="shade-background">
+                        <td class="sym">{{ stocks_SYMS[i] }}</td>
+
+
+                        <td>{{ stocks_NAMES[i] }}</td>
+
+                        <td>{{ stocks_NOS[i] }}</td>
+
+                        <td>{{ stocks_PRICE[i] }}</td>
+
+                        <td>{{ stocks_TOTAL[i] }}</td>
+
+                    </tr>
+                {% endif %}
+
+                {% if (i % 2 != 0) %}
+                    <tr>
+                        <td class="sym">{{ stocks_SYMS[i] }}</td>
+
+
+                        <td>{{ stocks_NAMES[i] }}</td>
+
+                        <td>{{ stocks_NOS[i] }}</td>
+
+                        <td>{{ stocks_PRICE[i] }}</td>
+
+                        <td>{{ stocks_TOTAL[i] }}</td>
+
+                    </tr>
+                {% endif %}
+            {% endfor %}
+
+            <tr>
+                <td> CASH </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> {{ CASH }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><strong>$10,000.00 </strong></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <style>
+        .table {
+            text-align:center;
+            font-size:20px;
+            text-align:left;
+        }
+
+        .sym {
+            text-transform:uppercase;
+        }
+
+        .shade-background {
+            background-color: rgba(0,0,0,.05);
+        }
+
+    </style>
+{% endblock %}
